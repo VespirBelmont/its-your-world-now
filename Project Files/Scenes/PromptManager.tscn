@@ -110,6 +110,30 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=37]
 resource_name = "Tab"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Unpressed:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 32, 48, 32, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pressed:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 32, 160, 32, 16 ) ]
+}
 
 [sub_resource type="Animation" id=31]
 resource_name = "X"
@@ -228,7 +252,7 @@ billboard = 2
 shaded = true
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 96, 64, 16, 16 )
+region_rect = Rect2( 32, 48, 32, 16 )
 
 [node name="Pressed" type="Sprite3D" parent="Keyboard"]
 visible = false
@@ -236,7 +260,7 @@ billboard = 2
 shaded = true
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 96, 176, 16, 16 )
+region_rect = Rect2( 32, 160, 32, 16 )
 
 [node name="Anim" type="AnimationPlayer" parent="Keyboard"]
 reset_on_save = false

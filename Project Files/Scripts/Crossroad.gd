@@ -7,7 +7,7 @@ var world_builder
 func _ready():
 	world_builder = get_parent().get_parent().get_parent().get_parent()
 	
-	self.connect("UpdateAttachment", world_builder, "update_land_pos")
+	self.connect("UpdateAttachment", world_builder, "update_land_info")
 
 func set_attachment_point():
 	var position = $AttachmentPoint.global_transform.origin
@@ -19,17 +19,23 @@ func set_attachment_point():
 func _on_PlayerDetectionArea_body_entered(body):
 	if body.is_in_group("Player"):
 		set_attachment_point()
-		world_builder.set_activation_status(true)
 		
-		if not world_builder.active:
-			world_builder.change_menu("Land")
-		$Controls.show()
-
+		
+		if WorldManager.lands_shards_owned <= 0:
+			$Controls/NoLand.show()
+			print("Crossroad.gd | No Land Left")
+		else:
+			$Controls/ToggleButton.show()
+			world_builder.set_activation_status(true)
+			if not world_builder.active:
+				world_builder.change_menu("Land")
 
 func _on_PlayerDetectionArea_body_exited(body):
 	if body.is_in_group("Player"):
 		world_builder.set_activation_status(false)
-		$Controls.hide()
+		
+		$Controls/ToggleButton.hide()
+		$Controls/NoLand.hide()
 
 func toggle_orbs():
 	if not $CrossroadDetection/ConnectedOrb_3.visible:

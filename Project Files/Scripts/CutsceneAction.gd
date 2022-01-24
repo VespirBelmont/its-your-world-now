@@ -41,6 +41,7 @@ func run():
 			complete()
 		
 		"Emit Signal":
+			print("CutsceneAction.gd | Signal Emitted from ", self.name)
 			emit_signal("SurpriseLink")
 			complete()
 		

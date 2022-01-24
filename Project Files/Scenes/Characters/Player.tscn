@@ -310,13 +310,13 @@ decelerations = {
 "Walk": 8.0
 }
 speed_max = 3.5
-gravity = -12.0
+gravity = -10.0
 gravity_fall_mod = -20.0
 gravity_max = 1.0
 
 [node name="VariableJumpSystem" parent="Modules" index="1" instance=ExtResource( 6 )]
-jump_count_default = 2
-force_intial = 1000.0
+jump_count_default = 1
+force_intial = 1100.0
 force = 450.0
 duration = {
 "Default": 10,

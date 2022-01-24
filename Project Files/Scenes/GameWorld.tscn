@@ -618,11 +618,7 @@ visible = false
 transform = Transform( 0.700847, -0.713312, 0, 0.713312, 0.700847, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="SnowLand_1_Sphere2" parent="WorldBuilder/WorldBuilderMenu/Land" instance=ExtResource( 25 )]
-visible = false
-
-[node name="SnowLand_1_Sphere3" parent="WorldBuilder/WorldBuilderMenu/Land" instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 0.796298, 0.604905, 0, -0.604905, 0.796298, 0, 0, 0 )
-visible = false
+transform = Transform( 0.700847, -0.713312, 0, 0.713312, 0.700847, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Characters" type="Spatial" parent="WorldBuilder/WorldBuilderMenu"]
 visible = false

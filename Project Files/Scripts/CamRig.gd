@@ -8,6 +8,8 @@ export (float) var zoom_speed = 0.05
 export (float) var zoom_min = -16
 export (float) var zoom_max = -6
 
+export (float) var transition_time_between_targets = 1.5
+
 export var rotation_allowed = {
 								"X": false,
 								"Y": false,
@@ -27,7 +29,7 @@ func set_new_target(_new_target):
 	var final_position = _new_target.global_transform.origin
 	
 	$Tween.interpolate_property(self, "translation", 
-								initial_position, final_position, 3, 
+								initial_position, final_position, transition_time_between_targets, 
 								Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 								)
 	$Tween.start()

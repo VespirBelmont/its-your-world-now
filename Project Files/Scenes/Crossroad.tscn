@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Crossroad.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ButtonPrompt.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Graphics/Interface/Land Art/Land_1.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/Interface/CancelSign.png" type="Texture" id=4]
 
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.346369, 0.744158, 0.534441 )
@@ -169,11 +171,24 @@ shape = SubResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.89928, 0, 0 )
 
 [node name="Controls" type="Spatial" parent="."]
+
+[node name="ToggleButton" parent="Controls" instance=ExtResource( 2 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0.439792, 2.53536, 0.0777098 )
+visible = false
+used_input = "ToggleWorldBuilder"
+
+[node name="NoLand" type="Spatial" parent="Controls"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0.447541, 2.56854, 0.123817 )
 visible = false
 
-[node name="ButtonPrompt" parent="Controls" instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.439792, 1.38226, 0.0777098 )
-used_input = "ToggleWorldBuilder"
+[node name="LandSprite" type="Sprite3D" parent="Controls/NoLand"]
+billboard = 2
+texture = ExtResource( 3 )
+
+[node name="CancelSprite" type="Sprite3D" parent="Controls/NoLand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0137366, 0, 0.011337 )
+billboard = 2
+texture = ExtResource( 4 )
 
 [node name="Spire" type="Spatial" parent="."]
 transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0 )
@@ -237,7 +252,6 @@ anims/Extend = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
 [node name="StaticBody" type="StaticBody" parent="Spatial/Bridge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/Bridge/StaticBody"]
 shape = SubResource( 20 )
