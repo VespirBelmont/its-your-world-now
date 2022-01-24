@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/CamRig.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/Dialogue/Intro/Line 9 - New World Explorer!.wav" type="AudioStream" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Audio/Dialogue/Create First Land/First Land Line 3.wav" type="AudioStream" id=31]
 [ext_resource path="res://Scenes/Reality Spheres/Player_1_Sphere.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Graphics/Interface/Inputs/gdb-keyboard-2.png" type="Texture" id=33]
+[ext_resource path="res://Audio/Music/Vibe Track.wav" type="AudioStream" id=34]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -760,6 +761,12 @@ region_rect = Rect2( 80, 48, 16, 16 )
 [node name="CharacterList" type="Spatial" parent="WorldBuilder"]
 
 [node name="CamDefaultPos" type="Position3D" parent="."]
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+volume_db = -20.0
+autoplay = true
+bus = "Music"
 
 [connection signal="Done" from="Cutscenes/Intro/Actions/OpenDialogue" to="Cutscenes/Intro" method="run_next_action"]
 [connection signal="SurpriseLink" from="Cutscenes/Intro/Actions/OpenDialogue" to="Interface/DialogueSystem" method="open_dialogue"]
