@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Graphics/tiles.png" type="Texture" id=1]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.501232, 0.409975, 0.00779952 )
+
+[node name="Fence" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315375, 1.81201, -3.92576 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00648099, 0.124108, -0.000305176 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite3D" parent="."]
+pixel_size = 0.0455
+shaded = true
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 656, 560, 30, 16 )

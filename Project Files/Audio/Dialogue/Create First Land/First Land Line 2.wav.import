@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/First Land Line 2.wav-111256fbdae09d9ab42fbe2a3b70f50f.sample"
+
+[deps]
+
+source_file="res://Audio/Dialogue/Create First Land/First Land Line 2.wav"
+dest_files=[ "res://.import/First Land Line 2.wav-111256fbdae09d9ab42fbe2a3b70f50f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

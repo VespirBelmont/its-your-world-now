@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Line 12 - I'll be Watching You....wav-6266695738a7fb23c0113daf96605a4a.sample"
+
+[deps]
+
+source_file="res://Audio/Dialogue/Intro/Line 12 - I'll be Watching You....wav"
+dest_files=[ "res://.import/Line 12 - I'll be Watching You....wav-6266695738a7fb23c0113daf96605a4a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

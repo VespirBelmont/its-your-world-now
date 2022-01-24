@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Chunks/Land Chunks/LandChunk.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Tilesets/Test_2.meshlib" type="MeshLibrary" id=2]
+
+[node name="LandChunkTemplate" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Ground" type="GridMap" parent="."]
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="Decor" type="Spatial" parent="."]
+
+[node name="CharacterSpawns" type="Spatial" parent="."]
+
+[node name="SpawnPoint_1" type="Position3D" parent="CharacterSpawns"]
+
+[node name="Crossroads" type="Spatial" parent="."]

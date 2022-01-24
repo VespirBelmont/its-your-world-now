@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Line 10 - They Might Try to Kill You....wav-8667a5e1a36314d1b4450c03c38f078a.sample"
+
+[deps]
+
+source_file="res://Audio/Dialogue/Intro/Line 10 - They Might Try to Kill You....wav"
+dest_files=[ "res://.import/Line 10 - They Might Try to Kill You....wav-8667a5e1a36314d1b4450c03c38f078a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

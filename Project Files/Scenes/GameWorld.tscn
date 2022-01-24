@@ -1,0 +1,831 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://Scenes/CamRig.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 9 - New World Explorer!.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 11 - Let's Get You Going.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 10 - They Might Try to Kill You....wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 8 - Reality Spheres.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 6 - Create! Destroy! DOMINATION!.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 5 - We're Worldbreakers!.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 4 - The Impossible.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 2 - The World Ended.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 1 - Wakey Wakey.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 3 - It's All Gone.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 12 - I'll be Watching You....wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 7 P1 - Break the News.wav" type="AudioStream" id=13]
+[ext_resource path="res://Graphics/Interface/Boxes/Box.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/CutsceneManager.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/CutsceneAction.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/DialogueSystem.gd" type="Script" id=17]
+[ext_resource path="res://Graphics/Interface/Fonts/manaspc.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 7 P2 - Dramatic Pause.wav" type="AudioStream" id=19]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 7 P5 - Anways.wav" type="AudioStream" id=20]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 7 P3 - You're a Worldbreaker!.wav" type="AudioStream" id=21]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 7 P6 - Your Job is Simple.wav" type="AudioStream" id=22]
+[ext_resource path="res://Audio/Dialogue/Intro/Line 7 P4 - Not Bragging But.wav" type="AudioStream" id=23]
+[ext_resource path="res://Scripts/WorldBuilder.gd" type="Script" id=24]
+[ext_resource path="res://Scenes/Reality Spheres/SnowLand_1_Sphere.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=26]
+[ext_resource path="res://Scenes/ButtonPrompt.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Graphics/Interface/Text.png" type="Texture" id=28]
+[ext_resource path="res://Audio/Dialogue/Create First Land/First Land Line 2.wav" type="AudioStream" id=29]
+[ext_resource path="res://Audio/Dialogue/Create First Land/First Land Line 1.wav" type="AudioStream" id=30]
+[ext_resource path="res://Audio/Dialogue/Create First Land/First Land Line 3.wav" type="AudioStream" id=31]
+[ext_resource path="res://Scenes/Reality Spheres/Player_1_Sphere.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Graphics/Interface/Inputs/gdb-keyboard-2.png" type="Texture" id=33]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+sky_horizon_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+sky_energy = 9.7
+ground_bottom_color = Color( 0.054902, 0.054902, 0.0588235, 1 )
+ground_horizon_color = Color( 0.14902, 0.152941, 0.152941, 1 )
+ground_energy = 3.45
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_sky_contribution = 0.68
+fog_depth_enabled = false
+fog_depth_begin = 100.0
+tonemap_mode = 1
+auto_exposure_enabled = true
+auto_exposure_scale = 0.1
+ss_reflections_enabled = true
+ss_reflections_depth_tolerance = 3.9
+ss_reflections_roughness = false
+ssao_radius = 108.83
+ssao_intensity = 1.92
+ssao_radius2 = 54.34
+ssao_light_affect = 0.32
+ssao_quality = 2
+dof_blur_far_enabled = true
+dof_blur_far_distance = 30.0
+dof_blur_far_transition = 39.04
+dof_blur_far_amount = 0.32
+dof_blur_far_quality = 2
+dof_blur_near_enabled = true
+dof_blur_near_distance = 9.34
+dof_blur_near_transition = 4.85
+dof_blur_near_amount = 0.57
+dof_blur_near_quality = 2
+adjustment_enabled = true
+adjustment_saturation = 1.38
+
+[sub_resource type="DynamicFont" id=3]
+size = 29
+outline_size = 1
+outline_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+font_data = ExtResource( 18 )
+
+[sub_resource type="Animation" id=5]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 849, 1217 ), Vector2( 849, 857 ), Vector2( 849, 977 ), Vector2( 849, 857 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Clear Text"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Text/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visual:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10.6667, 0 ), Vector2( 0, 0 ), Vector2( 10.6667, 0 ), Vector2( 0, 0 ), Vector2( -10.6667, 0 ), Vector2( 0, 0 ), Vector2( 10.6667, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Text:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10.6667, 0 ), Vector2( 0, 0 ), Vector2( 10.6667, 0 ), Vector2( 0, 0 ), Vector2( -10.6667, 0 ), Vector2( 0, 0 ), Vector2( 10.6667, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visual:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10.6667, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Text:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=8]
+size = 29
+outline_size = 1
+outline_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+font_data = ExtResource( 18 )
+
+[node name="GameWorld" type="Node"]
+script = ExtResource( 26 )
+
+[node name="Cutscenes" type="Node" parent="."]
+
+[node name="Intro" type="Node" parent="Cutscenes"]
+script = ExtResource( 15 )
+action_index = -1
+
+[node name="Voicelines" type="Node" parent="Cutscenes/Intro"]
+
+[node name="Line_1" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 10 )
+bus = "Dialogue"
+
+[node name="Line_2" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 9 )
+bus = "Dialogue"
+
+[node name="Line_3" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 11 )
+bus = "Dialogue"
+
+[node name="Line_4" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 8 )
+bus = "Dialogue"
+
+[node name="Line_5" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 7 )
+bus = "Dialogue"
+
+[node name="Line_6" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 6 )
+bus = "Dialogue"
+
+[node name="Line_7_Part1" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 13 )
+bus = "Dialogue"
+
+[node name="Line_7_Part2" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 19 )
+bus = "Dialogue"
+
+[node name="Line_7_Part3" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 21 )
+bus = "Dialogue"
+
+[node name="Line_7_Part4" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 23 )
+bus = "Dialogue"
+
+[node name="Line_7_Part5" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 20 )
+bus = "Dialogue"
+
+[node name="Line_7_Part6" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 22 )
+bus = "Dialogue"
+
+[node name="Line_8" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 5 )
+bus = "Dialogue"
+
+[node name="Line_9" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 2 )
+bus = "Dialogue"
+
+[node name="Line_10" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 4 )
+bus = "Dialogue"
+
+[node name="Line_11" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 3 )
+bus = "Dialogue"
+
+[node name="Line_12" type="AudioStreamPlayer" parent="Cutscenes/Intro/Voicelines"]
+stream = ExtResource( 12 )
+bus = "Dialogue"
+
+[node name="Actions" type="Node" parent="Cutscenes/Intro"]
+
+[node name="OpenDialogue" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="Timer" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Timer"
+
+[node name="VA_Line1" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_1")
+
+[node name="Dialogue_Line1" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Wakey Wakey Newborn."
+text_size = 60.0
+
+[node name="VA_Line2" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_2")
+
+[node name="Dialogue_Line2" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "You see, the world ended, the universe ended; reality as you knew it died."
+typewriter_speed = 0.13
+text_size = 40.0
+
+[node name="VA_Line3" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_3")
+
+[node name="Dialogue_Line3" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Your friends, family, and even your enemies are all gone."
+text_size = 50.0
+
+[node name="VA_Line4" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_4")
+
+[node name="Dialogue_Line4" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "This must be terribly shocking news. But outside of your reality is the impossible; a place where nothing is possible but yet it's not impossible either!"
+typewriter_speed = 0.07
+text_size = 30.0
+
+[node name="VA_Line5" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_5")
+
+[node name="Dialogue_Line5" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "And we the WORLDBREAKERS! exist within this impossible realm. Sounds pretty cool right?!"
+typewriter_speed = 0.09
+text_size = 35.0
+
+[node name="VA_Line6" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_6")
+
+[node name="Dialogue_Line6" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "We CREATE, DESTROY, and restructure realities. Something you can’t do or even tell it’s happening around you; unless you exist within the impossible."
+typewriter_speed = 0.095
+
+[node name="VA_Line7_Part1" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_7_Part1")
+dialogue_text = "Now here’s where I break the news to ya. Dramatic Pause….YOU’RE A WORLDBREAKER NOW TOO! And get the luxury of having me as your guide. Yeah you know, they say I’m one of the best Worldbreakers there ever was or will be! Not that I’m bragging or anything. Anyways, Your job is simple, you collect reality spheres and use them to create new worlds!"
+
+[node name="Dialogue_Line7_Part1" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Now here’s where I break the news to ya."
+typewriter_speed = 0.07
+text_size = 35.0
+
+[node name="VA_Line7_Part2" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_7_Part2")
+dialogue_text = "Now here’s where I break the news to ya. Dramatic Pause….YOU’RE A WORLDBREAKER NOW TOO! And get the luxury of having me as your guide. Yeah you know, they say I’m one of the best Worldbreakers there ever was or will be! Not that I’m bragging or anything. Anyways, Your job is simple, you collect reality spheres and use them to create new worlds!"
+
+[node name="Dialogue_Line7_Part2" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Dramatic Pause…."
+text_size = 40.0
+
+[node name="VA_Line7_Part3" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_7_Part3")
+dialogue_text = "Now here’s where I break the news to ya. Dramatic Pause….YOU’RE A WORLDBREAKER NOW TOO! And get the luxury of having me as your guide. Yeah you know, they say I’m one of the best Worldbreakers there ever was or will be! Not that I’m bragging or anything. Anyways, Your job is simple, you collect reality spheres and use them to create new worlds!"
+
+[node name="Dialogue_Line7_Part3" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "YOU’RE A WORLDBREAKER NOW TOO! "
+typewriter_speed = 0.05
+text_size = 50.0
+
+[node name="VA_Line7_Part4" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_7_Part4")
+dialogue_text = "Now here’s where I break the news to ya. Dramatic Pause….YOU’RE A WORLDBREAKER NOW TOO! And get the luxury of having me as your guide. Yeah you know, they say I’m one of the best Worldbreakers there ever was or will be! Not that I’m bragging or anything. Anyways, Your job is simple, you collect reality spheres and use them to create new worlds!"
+
+[node name="Dialogue_Line7_Part4" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "And get the luxury of having me as your guide. Yeah you know, they say I’m one of the best Worldbreakers there ever was or will be! Not that I’m bragging or anything. "
+typewriter_speed = 0.07
+text_size = 30.0
+
+[node name="VA_Line7_Part5" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_7_Part5")
+dialogue_text = "Now here’s where I break the news to ya. Dramatic Pause….YOU’RE A WORLDBREAKER NOW TOO! And get the luxury of having me as your guide. Yeah you know, they say I’m one of the best Worldbreakers there ever was or will be! Not that I’m bragging or anything. Anyways, Your job is simple, you collect reality spheres and use them to create new worlds!"
+
+[node name="Dialogue_Line7_Part5" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Anyways"
+typewriter_speed = 0.05
+text_size = 55.0
+
+[node name="VA_Line7_Part6" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_7_Part6")
+dialogue_text = "Now here’s where I break the news to ya. Dramatic Pause….YOU’RE A WORLDBREAKER NOW TOO! And get the luxury of having me as your guide. Yeah you know, they say I’m one of the best Worldbreakers there ever was or will be! Not that I’m bragging or anything. Anyways, Your job is simple, you collect reality spheres and use them to create new worlds!"
+
+[node name="Dialogue_Line7_Part6" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Your job is simple, you collect reality spheres and use them to create new worlds!"
+text_size = 30.0
+
+[node name="VA_Line8" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_8")
+
+[node name="Dialogue_Line8" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Reality spheres hold chunks of reality such as land, people, places; things!"
+typewriter_speed = 0.05
+text_size = 33.0
+
+[node name="VA_Line9" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_9")
+
+[node name="Dialogue_Line9" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "But, you’ll need to explore your world to connect the pieces like a puzzle."
+typewriter_speed = 0.05
+text_size = 33.0
+
+[node name="VA_Line10" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_10")
+
+[node name="Dialogue_Line10" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Why wouldn’t you want to explore your own worlds anyways! It’s super cool! Unless they try to kill you…erm…anyways"
+typewriter_speed = 0.05
+text_size = 33.0
+
+[node name="VA_Line11" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_11")
+
+[node name="Dialogue_Line11" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "I don’t wanna hold you up forever here, I mean after all you’re a freshly, newborn; WORLDBREAKER! So just open up your reality, select a reality sphere, and uhm, make it reality."
+typewriter_speed = 0.05
+text_size = 33.0
+
+[node name="VA_Line12" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_12")
+
+[node name="Dialogue_Line12" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+typewriter_speed = 0.05
+text_size = 33.0
+
+[node name="CloseDialogue" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+node_path = NodePath("../../Voicelines/Line_12")
+dialogue_text = "But don't worry I'll be here the whole time watching you.....and judging you sometimes....good luck!"
+
+[node name="Timer2" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Timer"
+
+[node name="SetBuilderActive" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="ChangeBuilderMenu" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="OpenWorldBuilderMenu" parent="Cutscenes/Intro/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="CreateFirstLand" type="Node" parent="Cutscenes"]
+script = ExtResource( 15 )
+action_index = -1
+
+[node name="Voicelines" type="Node" parent="Cutscenes/CreateFirstLand"]
+
+[node name="Line_1" type="AudioStreamPlayer" parent="Cutscenes/CreateFirstLand/Voicelines"]
+stream = ExtResource( 30 )
+bus = "Dialogue"
+
+[node name="Line_2" type="AudioStreamPlayer" parent="Cutscenes/CreateFirstLand/Voicelines"]
+stream = ExtResource( 29 )
+bus = "Dialogue"
+
+[node name="Line_3" type="AudioStreamPlayer" parent="Cutscenes/CreateFirstLand/Voicelines"]
+stream = ExtResource( 31 )
+bus = "Dialogue"
+
+[node name="Actions" type="Node" parent="Cutscenes/CreateFirstLand"]
+
+[node name="OpenDialogue" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="Timer" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Timer"
+
+[node name="VA_Line1" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_1")
+
+[node name="Dialogue_Line1" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Wow! You pressed a couple buttons and BAM!"
+typewriter_speed = 0.07
+text_size = 35.0
+
+[node name="VA_Line2" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_2")
+
+[node name="Dialogue_Line2" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "And you got some land!"
+text_size = 35.0
+
+[node name="VA_Line3" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Audio Play"
+node_path = NodePath("../../Voicelines/Line_3")
+
+[node name="Dialogue_Line3" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+node_path = NodePath("../../../../Interface/DialogueSystem")
+dialogue_text = "Place a CHARACTER EFFIGY and then go explore it!"
+text_size = 35.0
+
+[node name="CloseDialogue" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+node_path = NodePath("../../../Intro/Voicelines/Line_12")
+dialogue_text = "But don't worry I'll be here the whole time watching you.....and judging you sometimes....good luck!"
+
+[node name="Timer2" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Timer"
+
+[node name="SetBuilderActive" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="ChangeBuilderMenu" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="OpenWorldBuilderMenu" parent="Cutscenes/CreateFirstLand/Actions" instance=ExtResource( 16 )]
+action_type = "Emit Signal"
+
+[node name="CamRig" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -29.4216, 0 )
+follow_target_path = NodePath("../CamDefaultPos")
+rotation_allowed = {
+"X": false,
+"Y": true,
+"Z": false
+}
+
+[node name="Cam" parent="CamRig/YRot/ZRot" index="0"]
+environment = SubResource( 4 )
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="DialogueSystem" type="Control" parent="Interface"]
+margin_left = 849.0
+margin_top = 1217.0
+margin_right = 889.0
+margin_bottom = 1257.0
+rect_scale = Vector2( 3, 3 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+type_writer_speed = 0.1
+
+[node name="Visual" type="Control" parent="Interface/DialogueSystem"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FrameShadow" type="Sprite" parent="Interface/DialogueSystem/Visual"]
+modulate = Color( 0.447059, 0.447059, 0.447059, 0.635294 )
+position = Vector2( 17, 13 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 12, 36, 238, 62 )
+
+[node name="Frame" type="Sprite" parent="Interface/DialogueSystem/Visual"]
+position = Vector2( 15, 10 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 12, 36, 238, 62 )
+
+[node name="Inside" type="Sprite" parent="Interface/DialogueSystem/Visual"]
+modulate = Color( 0.454902, 0.521569, 0.713726, 1 )
+position = Vector2( 15, 10 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 12, 122, 230, 54 )
+
+[node name="Text" type="Control" parent="Interface/DialogueSystem"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Interface/DialogueSystem/Text"]
+margin_left = -144.0
+margin_top = -22.0
+margin_right = 691.0
+margin_bottom = 162.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 3 )
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anim" type="AnimationPlayer" parent="Interface/DialogueSystem"]
+anims/Toggle = SubResource( 5 )
+
+[node name="SubAnim" type="AnimationPlayer" parent="Interface/DialogueSystem"]
+reset_on_save = false
+"anims/Clear Text" = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
+[node name="WorldBuilder" type="Node" parent="."]
+script = ExtResource( 24 )
+
+[node name="WorldBuilderMenu" type="Spatial" parent="WorldBuilder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.4473, 0 )
+
+[node name="Land" type="Spatial" parent="WorldBuilder/WorldBuilderMenu"]
+visible = false
+
+[node name="SnowLand_1_Sphere" parent="WorldBuilder/WorldBuilderMenu/Land" instance=ExtResource( 25 )]
+transform = Transform( 0.700847, -0.713312, 0, 0.713312, 0.700847, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="SnowLand_1_Sphere2" parent="WorldBuilder/WorldBuilderMenu/Land" instance=ExtResource( 25 )]
+visible = false
+
+[node name="SnowLand_1_Sphere3" parent="WorldBuilder/WorldBuilderMenu/Land" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 0.796298, 0.604905, 0, -0.604905, 0.796298, 0, 0, 0 )
+visible = false
+
+[node name="Characters" type="Spatial" parent="WorldBuilder/WorldBuilderMenu"]
+visible = false
+
+[node name="Player_1_Sphere" parent="WorldBuilder/WorldBuilderMenu/Characters" instance=ExtResource( 32 )]
+
+[node name="Selection" type="Spatial" parent="WorldBuilder/WorldBuilderMenu"]
+visible = false
+
+[node name="PreviousSphere" parent="WorldBuilder/WorldBuilderMenu/Selection" instance=ExtResource( 27 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, -1.68011 )
+used_input = "Sphere_Prev"
+
+[node name="NextSphere" parent="WorldBuilder/WorldBuilderMenu/Selection" instance=ExtResource( 27 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 1.58703 )
+used_input = "Sphere_Next"
+
+[node name="SelectSphere" parent="WorldBuilder/WorldBuilderMenu/Selection" instance=ExtResource( 27 )]
+transform = Transform( 3, 0, 0, 0, 5, 0, 0, 0, 5, 0, -2.35005, -0.00232279 )
+used_input = "UI_Confirm"
+
+[node name="SelectText" type="Sprite3D" parent="WorldBuilder/WorldBuilderMenu/Selection"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.61869, 0 )
+billboard = 2
+texture = ExtResource( 28 )
+region_enabled = true
+region_rect = Rect2( 40.6388, 37.2308, 822.72, 190.009 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldBuilder/WorldBuilderMenu"]
+
+[node name="BuilderUI" type="Control" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+margin_left = 110.0
+margin_top = 822.0
+margin_right = 240.0
+margin_bottom = 859.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 8 )
+text = "Rotate"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+margin_left = 108.0
+margin_top = 905.0
+margin_right = 238.0
+margin_bottom = 942.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 8 )
+text = "Move"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+margin_left = 113.0
+margin_top = 986.0
+margin_right = 355.0
+margin_bottom = 1023.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 8 )
+text = "Raise/Lower"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gdb-keyboard-3" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 83, 854 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 96, 48, 16, 16 )
+
+[node name="Gdb-keyboard-2" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 32, 855 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 64, 48, 16, 16 )
+
+[node name="Gdb-keyboard-8" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 85, 1019 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 80, 80, 16, 16 )
+
+[node name="Gdb-keyboard-9" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 34, 1020 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 64, 80, 16, 16 )
+
+[node name="Gdb-keyboard-4" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 88, 945 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 96, 64, 16, 16 )
+
+[node name="Gdb-keyboard-5" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 22, 945 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 16, 16 )
+
+[node name="Gdb-keyboard-6" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 54, 945 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 80, 64, 16, 16 )
+
+[node name="Gdb-keyboard-7" type="Sprite" parent="WorldBuilder/WorldBuilderMenu/CanvasLayer/BuilderUI"]
+position = Vector2( 53, 912 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 33 )
+region_enabled = true
+region_rect = Rect2( 80, 48, 16, 16 )
+
+[node name="LandChunks" type="Spatial" parent="WorldBuilder"]
+
+[node name="CharacterList" type="Spatial" parent="WorldBuilder"]
+
+[node name="CamDefaultPos" type="Position3D" parent="."]
+
+[connection signal="Done" from="Cutscenes/Intro/Actions/OpenDialogue" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/Intro/Actions/OpenDialogue" to="Interface/DialogueSystem" method="open_dialogue"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Timer" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line1" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line1" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line2" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line2" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line3" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line3" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line4" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line4" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line5" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line5" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line6" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line6" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line7_Part1" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line7_Part1" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line7_Part2" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line7_Part2" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line7_Part3" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line7_Part3" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line7_Part4" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line7_Part4" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line7_Part5" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line7_Part5" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line7_Part6" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line7_Part6" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line8" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line8" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line9" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line9" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line10" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line10" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line11" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line11" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/VA_Line12" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Dialogue_Line12" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/CloseDialogue" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/Intro/Actions/CloseDialogue" to="Interface/DialogueSystem" method="close_dialogue"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/Timer2" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/Intro/Actions/SetBuilderActive" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/Intro/Actions/SetBuilderActive" to="WorldBuilder" method="set_activation_status" binds= [ true ]]
+[connection signal="Done" from="Cutscenes/Intro/Actions/ChangeBuilderMenu" to="Cutscenes/Intro" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/Intro/Actions/ChangeBuilderMenu" to="WorldBuilder" method="change_menu" binds= [ "Land" ]]
+[connection signal="SurpriseLink" from="Cutscenes/Intro/Actions/OpenWorldBuilderMenu" to="WorldBuilder" method="toggle"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/OpenDialogue" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/CreateFirstLand/Actions/OpenDialogue" to="Interface/DialogueSystem" method="open_dialogue"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/Timer" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/VA_Line1" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/Dialogue_Line1" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/VA_Line2" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/Dialogue_Line2" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/VA_Line3" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/Dialogue_Line3" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/CloseDialogue" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/CreateFirstLand/Actions/CloseDialogue" to="Interface/DialogueSystem" method="close_dialogue"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/Timer2" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/SetBuilderActive" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/CreateFirstLand/Actions/SetBuilderActive" to="WorldBuilder" method="set_activation_status" binds= [ true ]]
+[connection signal="Done" from="Cutscenes/CreateFirstLand/Actions/ChangeBuilderMenu" to="Cutscenes/CreateFirstLand" method="run_next_action"]
+[connection signal="SurpriseLink" from="Cutscenes/CreateFirstLand/Actions/ChangeBuilderMenu" to="WorldBuilder" method="change_menu" binds= [ "Character" ]]
+[connection signal="SurpriseLink" from="Cutscenes/CreateFirstLand/Actions/OpenWorldBuilderMenu" to="WorldBuilder" method="toggle"]
+
+[editable path="CamRig"]

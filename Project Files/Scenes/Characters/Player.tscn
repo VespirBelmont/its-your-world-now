@@ -1,0 +1,381 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Graphics/Characters/walk/char1_walk.png" type="Texture" id=1]
+[ext_resource path="res://Audio/SFX/Jump/Jump_2.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Characters/CharacterCore3D.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Characters/CharacterPuppets/Scenes/3D/Modules/Movement_Systems/GradualMoveSystem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Characters/CharacterPuppets/Scenes/3D/Modules/Jump_Systems/VariableJumpSystem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Graphics/Particles/SnowCloud.material" type="Material" id=7]
+[ext_resource path="res://Graphics/Particles/DirtCloud.material" type="Material" id=8]
+[ext_resource path="res://Audio/SFX/Footsteps/Footsteps_Snow.wav" type="AudioStream" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=2]
+resource_name = "WalkBackward"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "WalkForward"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "WalkLeft"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "WalkRight"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20, 21, 22, 23 ]
+}
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+albedo_color = Color( 0.823529, 0.823529, 0.823529, 0.356863 )
+
+[sub_resource type="CubeMesh" id=14]
+material = SubResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=13]
+flags_transparent = true
+albedo_color = Color( 0.392157, 0.309804, 0.184314, 0.356863 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "Dirt"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:process_material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:draw_pass_1:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 13 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Snow"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:process_material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:draw_pass_1:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 15 ) ]
+}
+
+[node name="Player" groups=["Player"] instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+script = ExtResource( 3 )
+death_fall_height = -999.0
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.000814669, -0.0542412, 0.0045568 )
+
+[node name="GradualMoveSystem" parent="Modules" index="0" instance=ExtResource( 5 )]
+accelerations = {
+"Run": 7.0,
+"Sprint": 9.0,
+"Walk": 5.0
+}
+decelerations = {
+"Run": 6.0,
+"Sprint": 4.0,
+"Walk": 8.0
+}
+speed_max = 3.5
+gravity = -12.0
+gravity_fall_mod = -20.0
+gravity_max = 1.0
+
+[node name="VariableJumpSystem" parent="Modules" index="1" instance=ExtResource( 6 )]
+jump_count_default = 2
+force_intial = 1000.0
+force = 450.0
+duration = {
+"Default": 10,
+"Left": 10
+}
+
+[node name="ShadowCast" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00104815, 0, 0.0567899 )
+
+[node name="ShadowSprite" parent="NonFollow" index="0"]
+transform = Transform( 1.06445, 0, 0, 0, -7.57348e-08, -2, 0, 1.73261, -8.74228e-08, 0, -0.153695, 0 )
+shaded = true
+
+[node name="SpriteRig" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Body" parent="SpriteRig" index="0"]
+vframes = 4
+
+[node name="Anim" type="AnimationPlayer" parent="SpriteRig/Body" index="0"]
+reset_on_save = false
+anims/Idle = SubResource( 1 )
+anims/WalkBackward = SubResource( 2 )
+anims/WalkForward = SubResource( 3 )
+anims/WalkLeft = SubResource( 4 )
+anims/WalkRight = SubResource( 5 )
+
+[node name="Clothes" parent="SpriteRig" index="1"]
+visible = false
+
+[node name="Hair" parent="SpriteRig" index="2"]
+visible = false
+
+[node name="Particles" type="Spatial" parent="." index="6"]
+
+[node name="MovementCloud" type="Particles" parent="Particles" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00144206, -0.0956696, 0.119247 )
+emitting = false
+amount = 20
+explosiveness = 0.24
+randomness = 0.19
+local_coords = false
+process_material = ExtResource( 7 )
+draw_pass_1 = SubResource( 14 )
+
+[node name="Anim" type="AnimationPlayer" parent="Particles/MovementCloud" index="0"]
+anims/Dirt = SubResource( 11 )
+anims/Snow = SubResource( 12 )
+
+[node name="Sounds" type="Spatial" parent="." index="7"]
+
+[node name="WalkSound" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
+stream = ExtResource( 9 )
+unit_db = 3.0
+max_distance = 100.0
+bus = "SFX"
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="Sounds" index="1"]
+stream = ExtResource( 2 )
+unit_db = 3.0
+max_distance = 100.0
+bus = "SFX"

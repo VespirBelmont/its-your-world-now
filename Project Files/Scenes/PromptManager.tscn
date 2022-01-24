@@ -1,0 +1,320 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scripts/PromptManager.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Interface/Inputs/gdb-keyboard-2.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=25]
+resource_name = "A"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Unpressed:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 64, 64, 16, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pressed:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 64, 176, 16, 16 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Arrow Down"
+
+[sub_resource type="Animation" id=12]
+resource_name = "Arrow Left"
+
+[sub_resource type="Animation" id=10]
+resource_name = "Arrow Right"
+
+[sub_resource type="Animation" id=9]
+resource_name = "Arrow Up"
+
+[sub_resource type="Animation" id=35]
+resource_name = "Backspace"
+
+[sub_resource type="Animation" id=32]
+resource_name = "C"
+
+[sub_resource type="Animation" id=39]
+resource_name = "D"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pressed:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 96, 176, 16, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unpressed:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 96, 64, 16, 16 ) ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "Enter"
+
+[sub_resource type="Animation" id=13]
+resource_name = "Escape"
+
+[sub_resource type="Animation" id=16]
+resource_name = "Space"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Unpressed:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 96, 96, 112, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pressed:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 96, 208, 112, 16 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "Tab"
+
+[sub_resource type="Animation" id=31]
+resource_name = "X"
+
+[sub_resource type="Animation" id=27]
+resource_name = "Z"
+
+[sub_resource type="Animation" id=40]
+resource_name = "Press"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Controller/Nintendo/Unpressed:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Controller/Xbox/Unpressed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Controller/PlayStation/Unpressed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Keyboard/Unpressed:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Controller/PlayStation/Pressed:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Controller/Xbox/Pressed:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Controller/Nintendo/Pressed:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Keyboard/Pressed:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( -0.1, 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[node name="PromptManager" type="Spatial"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Keyboard" type="Spatial" parent="."]
+
+[node name="Unpressed" type="Sprite3D" parent="Keyboard"]
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 96, 64, 16, 16 )
+
+[node name="Pressed" type="Sprite3D" parent="Keyboard"]
+visible = false
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 96, 176, 16, 16 )
+
+[node name="Anim" type="AnimationPlayer" parent="Keyboard"]
+reset_on_save = false
+playback_speed = 2.0
+anims/A = SubResource( 25 )
+"anims/Arrow Down" = SubResource( 11 )
+"anims/Arrow Left" = SubResource( 12 )
+"anims/Arrow Right" = SubResource( 10 )
+"anims/Arrow Up" = SubResource( 9 )
+anims/Backspace = SubResource( 35 )
+anims/C = SubResource( 32 )
+anims/D = SubResource( 39 )
+anims/Enter = SubResource( 38 )
+anims/Escape = SubResource( 13 )
+anims/Space = SubResource( 16 )
+anims/Tab = SubResource( 37 )
+anims/X = SubResource( 31 )
+anims/Z = SubResource( 27 )
+
+[node name="Controller" type="Spatial" parent="."]
+visible = false
+
+[node name="PlayStation" type="Spatial" parent="Controller"]
+visible = false
+
+[node name="Unpressed" type="Sprite3D" parent="Controller/PlayStation"]
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 240, 16, 16, 16 )
+
+[node name="Pressed" type="Sprite3D" parent="Controller/PlayStation"]
+visible = false
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 240, 0, 16, 16 )
+
+[node name="Xbox" type="Spatial" parent="Controller"]
+
+[node name="Unpressed" type="Sprite3D" parent="Controller/Xbox"]
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 80, 0, 16, 16 )
+
+[node name="Pressed" type="Sprite3D" parent="Controller/Xbox"]
+visible = false
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 144, 0, 16, 16 )
+
+[node name="Nintendo" type="Spatial" parent="Controller"]
+visible = false
+
+[node name="Unpressed" type="Sprite3D" parent="Controller/Nintendo"]
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 176, 0, 16, 16 )
+
+[node name="Pressed" type="Sprite3D" parent="Controller/Nintendo"]
+visible = false
+billboard = 2
+shaded = true
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 176, 16, 16, 16 )
+
+[node name="Anim" type="AnimationPlayer" parent="Controller"]
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+reset_on_save = false
+playback_speed = 1.2
+anims/Press = SubResource( 40 )

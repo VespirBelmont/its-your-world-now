@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Footsteps_Snow.wav-a312515bb03f8f419ae98253dee93188.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Footsteps/Footsteps_Snow.wav"
+dest_files=[ "res://.import/Footsteps_Snow.wav-a312515bb03f8f419ae98253dee93188.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

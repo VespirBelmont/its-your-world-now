@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Line 3 - It's All Gone.wav-704caf634d392ec9100bd763dbc205d0.sample"
+
+[deps]
+
+source_file="res://Audio/Dialogue/Intro/Line 3 - It's All Gone.wav"
+dest_files=[ "res://.import/Line 3 - It's All Gone.wav-704caf634d392ec9100bd763dbc205d0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Graphics/tiles.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.618909
+height = 2.84039
+
+[node name="Tree" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09637, 1.28105 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43452, -0.845878 )
+pixel_size = 0.1402
+shaded = true
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 752, 433, 33, 32 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform( -0.31603, 0, -0.948749, 0, 1, 0, 0.948749, 0, -0.31603, 0.299721, 1.43452, 0.110334 )
+pixel_size = 0.1402
+shaded = true
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 752, 433, 33, 32 )
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform( 0.653249, 0, -0.757143, 0, 1, 0, 0.757143, 0, 0.653249, -0.204166, 1.43452, 0.11192 )
+pixel_size = 0.1402
+shaded = true
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 752, 433, 33, 32 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.168332, 0.929439, -0.0343589 )
+shape = SubResource( 3 )

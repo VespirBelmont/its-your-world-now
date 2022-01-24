@@ -1,0 +1,240 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Chunks/Land Chunks/LandChunkTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Graphics/Tilesets/Test_2.meshlib" type="MeshLibrary" id=2]
+[ext_resource path="res://Scenes/Environment/Tree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Environment/Fence.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Crossroad.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 10.96
+angle = 12.3
+angle_random = 0.46
+scale = 0.05
+scale_random = 0.08
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 0.858824, 0.894118, 0.929412, 0.694118 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ground:collision_layer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("World/Ground_1:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "ToggleCollisions"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ground:collision_layer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("World/Ground_1:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="SnowLandChunk_1" instance=ExtResource( 1 )]
+
+[node name="Ground" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30916, 0, 0 )
+visible = false
+cell_size = Vector3( 1, 1, 1 )
+collision_layer = 0
+collision_mask = 0
+data = {
+"cells": PoolIntArray(  )
+}
+
+[node name="Decor" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30916, 0, 0 )
+
+[node name="World" type="Spatial" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30916, 0, 0 )
+
+[node name="Ground_1" type="GridMap" parent="World" index="0"]
+mesh_library = ExtResource( 2 )
+cell_size = Vector3( 1, 1, 1 )
+collision_layer = 0
+collision_mask = 0
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65535, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 131071, 0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65535, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 131071, 1, 0, 65528, 65528, 0, 131064, 65528, 0, 65527, 65529, 0, 65528, 65529, 0, 65529, 65529, 0, 65530, 65529, 0, 131063, 65529, 0, 131064, 65529, 0, 131065, 65529, 0, 65526, 65530, 0, 65527, 65530, 0, 65528, 65530, 0, 65529, 65530, 0, 65530, 65530, 0, 65531, 65530, 0, 131062, 65530, 0, 131063, 65530, 0, 131064, 65530, 0, 131065, 65530, 0, 65526, 65531, 0, 65527, 65531, 0, 65528, 65531, 0, 65529, 65531, 0, 65530, 65531, 0, 65531, 65531, 0, 131062, 65531, 0, 131063, 65531, 0, 131064, 65531, 0, 131065, 65531, 0, 0, 65532, 0, 1, 65532, 0, 2, 65532, 0, 65525, 65532, 0, 65526, 65532, 0, 65527, 65532, 0, 65528, 65532, 0, 65529, 65532, 0, 65530, 65532, 0, 65531, 65532, 0, 65535, 65532, 0, 131062, 65532, 0, 131063, 65532, 0, 131064, 65532, 0, 131065, 65532, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 65525, 65533, 0, 65526, 65533, 0, 65527, 65533, 0, 65528, 65533, 0, 65529, 65533, 0, 65530, 65533, 0, 65531, 65533, 0, 65535, 65533, 0, 131061, 65533, 0, 131062, 65533, 0, 131063, 65533, 0, 131064, 65533, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 65525, 65534, 0, 65526, 65534, 0, 65527, 65534, 0, 65528, 65534, 0, 65529, 65534, 0, 65530, 65534, 0, 65531, 65534, 0, 65532, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 131061, 65534, 0, 131062, 65534, 0, 131063, 65534, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 65527, 65535, 0, 65528, 65535, 0, 65529, 65535, 0, 65530, 65535, 0, 65531, 65535, 0, 65532, 65535, 0, 65535, 65535, 0, 65536, 65535, 0, 65538, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 1, 0 )
+}
+
+[node name="Fences" type="Spatial" parent="World" index="1"]
+
+[node name="Fence" parent="World/Fences" index="0" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.479802, 1.78363, -3.92576 )
+
+[node name="Fence2" parent="World/Fences" index="1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.258717, 1.78363, -3.92576 )
+
+[node name="Fence3" parent="World/Fences" index="2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04507, 1.78363, -3.92576 )
+
+[node name="Fence4" parent="World/Fences" index="3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.83025, 1.78363, -3.92576 )
+
+[node name="Fence19" parent="World/Fences" index="4" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57301, 1.78363, -3.92576 )
+
+[node name="Fence5" parent="World/Fences" index="5" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07366, 1.78363, 1.78976 )
+
+[node name="Fence9" parent="World/Fences" index="6" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.87079, 1.78363, 1.78976 )
+
+[node name="Fence6" parent="World/Fences" index="7" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33514, 1.78363, 1.78976 )
+
+[node name="Fence7" parent="World/Fences" index="8" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54879, 1.78363, 1.78976 )
+
+[node name="Fence8" parent="World/Fences" index="9" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76361, 1.78363, 1.78976 )
+
+[node name="Fence10" parent="World/Fences" index="10" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.09367, 1.78363, 1.28697 )
+
+[node name="Fence11" parent="World/Fences" index="11" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.09367, 1.78363, 0.473243 )
+
+[node name="Fence12" parent="World/Fences" index="12" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.09367, 1.78363, -0.29565 )
+
+[node name="Fence13" parent="World/Fences" index="13" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.984977, 1.76968, -0.546563 )
+
+[node name="Fence14" parent="World/Fences" index="14" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.984977, 1.76968, -3.28199 )
+
+[node name="Fence15" parent="World/Fences" index="15" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.984977, 1.76968, -2.49612 )
+
+[node name="Fence16" parent="World/Fences" index="16" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.15655, 1.76635, -3.33988 )
+
+[node name="Fence17" parent="World/Fences" index="17" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.15655, 1.76635, -2.5992 )
+
+[node name="Fence20" parent="World/Fences" index="18" instance=ExtResource( 4 )]
+transform = Transform( 0.995054, 0, 0.0993371, 0, 1, 0, -0.0993371, 0, 0.995054, -10.5324, 2.76475, -2.97179 )
+
+[node name="Fence23" parent="World/Fences" index="19" instance=ExtResource( 4 )]
+transform = Transform( 0.999752, 0, 0.0222686, 0, 1, 0, -0.0222686, 0, 0.999752, -10.5324, 2.76475, -1.01204 )
+
+[node name="Fence24" parent="World/Fences" index="20" instance=ExtResource( 4 )]
+transform = Transform( 0.999752, 0, 0.0222686, 0, 1, 0, -0.0222686, 0, 0.999752, -9.75196, 2.76475, -1.01204 )
+
+[node name="Fence25" parent="World/Fences" index="21" instance=ExtResource( 4 )]
+transform = Transform( 0.999752, 0, 0.0222686, 0, 1, 0, -0.0222686, 0, 0.999752, -9.00539, 2.76475, -1.01204 )
+
+[node name="Fence21" parent="World/Fences" index="22" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.9474, 2.76475, -2.27173 )
+
+[node name="Fence26" parent="World/Fences" index="23" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.9654, 2.76475, -3.47764 )
+
+[node name="Fence22" parent="World/Fences" index="24" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.9474, 2.76475, -1.46856 )
+
+[node name="Trees" type="Spatial" parent="World" index="2"]
+
+[node name="Tree" parent="World/Trees" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09637, 1.52226 )
+
+[node name="Tree2" parent="World/Trees" index="1" instance=ExtResource( 3 )]
+transform = Transform( 0.78947, 0, -0.613789, 0, 1, 0, 0.613789, 0, 0.78947, 1.20089, 3.09637, 1.52226 )
+
+[node name="Tree3" parent="World/Trees" index="2" instance=ExtResource( 3 )]
+transform = Transform( 0.108103, 0, -0.99414, 0, 1, 0, 0.99414, 0, 0.108103, 2.75012, 3.09637, 0.905689 )
+
+[node name="Tree4" parent="World/Trees" index="3" instance=ExtResource( 3 )]
+transform = Transform( 0.108103, 0, -0.99414, 0, 1, 0, 0.99414, 0, 0.108103, -9.05263, 2.14327, -0.00215411 )
+
+[node name="Tree5" parent="World/Trees" index="4" instance=ExtResource( 3 )]
+transform = Transform( 0.587785, 0, -0.809017, 0, 1, 0, 0.809017, 0, 0.587785, -7.19641, 2.14327, 0.931316 )
+
+[node name="Tree6" parent="World/Trees" index="5" instance=ExtResource( 3 )]
+transform = Transform( 0.905613, 0, -0.424105, 0, 1, 0, 0.424105, 0, 0.905613, -9.136, 3.23131, -4.95909 )
+
+[node name="SnowFallParticles" type="Particles" parent="World" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03034, 7.08224, -1.3262 )
+amount = 200
+lifetime = 1.83
+randomness = 0.43
+visibility_aabb = AABB( -8.06526, -3.16962, -5.59459, 16.1305, 9.66053, 11.1892 )
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="CharacterSpawns" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30916, 0, 0 )
+
+[node name="SpawnPoint_1" parent="CharacterSpawns" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77312, 3.1411, -0.884355 )
+
+[node name="SpawnPoint_2" type="Position3D" parent="CharacterSpawns" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73516, 3.51117, -4.51156 )
+
+[node name="SpawnPoint_3" type="Position3D" parent="CharacterSpawns" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.98393, 3.51117, -1.84649 )
+
+[node name="Crossroads" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30916, 0, 0 )
+
+[node name="Crossroad" parent="Crossroads" index="0" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23794, 1.54687, -1.57196 )
+
+[node name="Crossroad2" parent="Crossroads" index="1" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.5697, 2.55513, -7.16834 )
+
+[node name="PhysicsAnim" type="AnimationPlayer" parent="." index="5"]
+reset_on_save = false
+anims/RESET = SubResource( 7 )
+anims/ToggleCollisions = SubResource( 6 )

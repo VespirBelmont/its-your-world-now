@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Line 7 P4 - Not Bragging But.wav-8e6f42d928e2ea5e2e5f551092709063.sample"
+
+[deps]
+
+source_file="res://Audio/Dialogue/Intro/Line 7 P4 - Not Bragging But.wav"
+dest_files=[ "res://.import/Line 7 P4 - Not Bragging But.wav-8e6f42d928e2ea5e2e5f551092709063.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

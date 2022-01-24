@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Footsteps_Sand.wav-d4c24708b0af7de94cca56ff94e206c8.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Footsteps/Footsteps_Sand.wav"
+dest_files=[ "res://.import/Footsteps_Sand.wav-d4c24708b0af7de94cca56ff94e206c8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

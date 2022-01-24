@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ButtonPrompt.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/PromptManager.tscn" type="PackedScene" id=3]
+
+[node name="ButtonPrompt" type="Spatial"]
+script = ExtResource( 2 )
+pressed_volume = -5.0
+
+[node name="PromptManager" parent="." instance=ExtResource( 3 )]
+
+[node name="PressedAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+pitch_scale = 0.63
+bus = "SFX"
+
+[connection signal="Button_Pressed" from="." to="PromptManager" method="button_pressed"]

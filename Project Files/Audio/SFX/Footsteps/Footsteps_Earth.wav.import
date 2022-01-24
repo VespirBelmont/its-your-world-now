@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Footsteps_Earth.wav-16135b432df84a824df7a9a2bcedef05.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Footsteps/Footsteps_Earth.wav"
+dest_files=[ "res://.import/Footsteps_Earth.wav-16135b432df84a824df7a9a2bcedef05.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
